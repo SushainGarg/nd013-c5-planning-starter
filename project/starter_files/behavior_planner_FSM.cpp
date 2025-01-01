@@ -54,8 +54,7 @@ State BehaviorPlannerFSM::get_closest_waypoint_goal(
       LOG(INFO) << "BP - Last wp is in same junction as ego. Junction ID: " << _prev_junction_id;
       is_goal_junction = false;
     } else {
-      LOG(INFO) << "BP - Last wp is in different junction than ego. Junction
-      ID: " << cur_junction_id;
+      LOG(INFO) << "BP - Last wp is in different junction than ego. Junction ID: " << cur_junction_id;
       _prev_junction_id = cur_junction_id;
     }
   }
@@ -127,8 +126,7 @@ State BehaviorPlannerFSM::state_transition(const State& ego_state, State goal,
       LOG(INFO) << "BP - changing to DECEL_TO_STOP";
 
       // Let's backup a "buffer" distance behind the "STOP" point
-      LOG(INFO) << "BP- original STOP goal at: " << goal.location.x << ", "
-      //          << goal.location.y;
+      LOG(INFO) << "BP- original STOP goal at: " << goal.location.x << ", " << goal.location.y;
 
       // TODO-goal behind the stopping point: put the goal behind the stopping
       // point (i.e the actual goal location) by "_stop_line_buffer". HINTS:
@@ -141,7 +139,7 @@ State BehaviorPlannerFSM::state_transition(const State& ego_state, State goal,
       goal.location.y += 1.0 * std::sin(ang);  // <- Fix This
 
       LOG(INFO) << "BP- new STOP goal at: " << goal.location.x << ", "
-      //          << goal.location.y;
+                << goal.location.y;
 
       // TODO-goal speed at stopping point: What should be the goal speed??
       goal.velocity.x = 0.0;  // <- Fix This
@@ -186,7 +184,8 @@ State BehaviorPlannerFSM::state_transition(const State& ego_state, State goal,
       _active_maneuver = STOPPED;  // <- Fix This
       _start_stop_time = std::chrono::high_resolution_clock::now();
       LOG(INFO) << "BP - changing to STOPPED";
-    }
+          }
+        }
   } else if (_active_maneuver == STOPPED) {
     LOG(INFO) << "BP- IN STOPPED STATE";
     // TODO-maintain the same goal when in STOPPED state: Make sure the new goal
