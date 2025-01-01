@@ -42,7 +42,7 @@ double collision_circles_cost_spiral(const std::vector<PathPoint>& spiral,
 
   for (auto wp : spiral) {
     if (collision) {
-      // LOG(INFO) << " ***** COLLISION DETECTED *********" << std::endl;
+      LOG(INFO) << " ***** COLLISION DETECTED *********" << std::endl;
       break;
     }
     double cur_x = wp.x;
@@ -102,8 +102,8 @@ double close_to_main_goal_cost_spiral(const std::vector<PathPoint>& spiral,
                         (delta_z * delta_z));
 
   auto cost = logistic(dist);
-  // LOG(INFO) << "distance to main goal: " << dist;
-  // LOG(INFO) << "cost (log): " << cost;
+  LOG(INFO) << "distance to main goal: " << dist;
+  LOG(INFO) << "cost (log): " << cost;
   return cost;
 }
 }  // namespace cost_functions
